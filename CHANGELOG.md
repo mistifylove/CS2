@@ -5,6 +5,9 @@ This file lists all the updates made to our AssignMate project.
 - Created initial project proposal.
 - Wrote problem statement, objectives, and planned features.
 - Drafted logic plan for program flow.
+- Defined planned inputs and outputs for tasks.
+- Outlined task status system (Pending/Done).
+- Planned user interactions for adding and marking tasks.
 
 ## Notes
 - This is only the initial draft for the project.
