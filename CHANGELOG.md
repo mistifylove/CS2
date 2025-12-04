@@ -13,3 +13,13 @@ This file lists all the updates made to our AssignMate project.
 - This is only the initial draft for the project.
 - No coding or actual program development has started yet.
 - Features, flow, and details may change as the project progresses.
+
+## Version v0.2.0 - October 2025
+# Updates
+- Added missing details to the Planned Features section.
+- Improved explanation of task statuses (Pending/Done).
+- Cleaned and clarified Inputs and Outputs.
+- Revised the program flow for easier understanding.
+- Added more user-friendly examples in the proposal.
+## Notes
+- Still in draft form; some sections were incomplete and marked for revision.
