@@ -32,16 +32,17 @@ Many students forget assignments because they have no easy way to track them. As
 - Updated list of tasks after changes
 
 # Logic Plan
-Start
-Ask for task title, subject, due date
-Save as Pending
-Repeat for more tasks
-Show all tasks
-Ask which one is done
-Change status to Done
-Show updated list
-End
+1. Start
+2. Ask for task title, subject, due date
+3. Save as Pending
+4. Repeat for more tasks
+5. Show all tasks
+6. Ask which one is done
+7. Change status to Done
+8. Show updated list
+9. End
 
+    
 ## Target Users
 - Students who need an easy and organized way to track assignments.
 - Users need to quickly add, view, and mark tasks as done.
