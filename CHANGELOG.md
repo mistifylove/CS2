@@ -24,3 +24,24 @@ This file lists all the updates made to our AssignMate project.
 - Added more user-friendly examples in the proposal.
 ## Notes
 - Still in draft form; some sections were incomplete and marked for revision.
+
+
+## Version v1.0.0 – December 4, 2025 
+- Finalized project proposal based on teacher and members feedback.
+- Refined problem statement and objectives to better address student needs.
+- Finalized logic plan and program flow.
+
+## Confirmed inputs and outputs for all tasks:
+- Inputs: Task title, subject, due date, task number to mark as done
+- Outputs: Task confirmation, list of all tasks with status, updated list after changes
+
+## Updated planned features:
+- Add task
+- View all tasks
+- Mark task as done
+- Show updated task list
+- Incorporated all team contributions and finalized repository structure.
+- Ensured project is ready for presentation and submission.
+
+## Notes
+- Features, flow, and details may still be revised based on further feedback.
