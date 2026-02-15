@@ -65,9 +65,13 @@ Not applicable. This is a standalone, console-based application.
 
 # GitHub Repository Structure
 AssignMate/
+
 │── main.py
+
 │── tasks.json
+
 │── README.md
+
 │── CHANGELOG.md
 
 # GitHub Practices
