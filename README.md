@@ -77,7 +77,7 @@ AssignMate/
 
 # Installation and Usage
 Clone the repository:
-git clone https://github.com/your-username/AssignMate.git
+git clone https://github.com/mistifylove/AssignMate.git
 
 Navigate to the folder:
 cd AssignMate
