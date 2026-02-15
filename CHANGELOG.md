@@ -45,3 +45,12 @@ This file lists all the updates made to our AssignMate project.
 
 ## Notes
 - Features, flow, and details may still be revised based on further feedback.
+
+## Version v2.0.0 – January 2026
+Updates
+- Implemented full AssignMate program in Python
+- Added persistent task storage using JSON
+- Implemented task deletion feature
+- Added date validation for due dates
+- Added export to Markdown functionality
+- Updated README with methodology, ethics, and repository details
