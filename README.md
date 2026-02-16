@@ -6,7 +6,7 @@ AssignMate is a simple command-line task management program that helps students 
 - This repository was developed by Misty Gean Moreno, Katarah Sabrina Abarca, and Adriann Gabriell Arpilleda.
 
 # Problem Statement
-Many students forget or miss assignments because they do not have an easy and organized way to track them. AssignMate addresses this problem by providing a simple system to manage tasks and monitor their completion status.
+A lot of students end up missing or forgetting their assignments simply because they don’t have a clear and organized way to keep track of them. AssignMate helps solve this problem by providing a simple, easy-to-use system that allows students to manage their tasks and keep an eye on their progress until everything is completed.
 
 # Project Objectives
 - Allow users to add assignments with a subject and due date
