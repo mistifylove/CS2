@@ -25,6 +25,13 @@ A lot of students end up missing or forgetting their assignments simply because 
 - Export tasks to a Markdown file
 - Simple menu-driven interface
 
+# Requirements:
+- Python 3.10 or higher
+- Built-in modules used:
+  - json
+  - datetime
+  - os (if used)
+
 # Inputs and Outputs
 Inputs
 - Task title
@@ -38,6 +45,18 @@ Outputs
 - Updated task list after changes
 - Exported Markdown file (assignmate_tasks.md)
 
+# Errors
+- What happens if the user enters:
+  - Invalid date format
+  - Empty title
+  - Invalid task number
+  - Corrupted JSON file
+# Error Handling:
+- Invalid date formats are rejected and the user is prompted again.
+- Invalid task numbers are handled safely.
+- The program preveents crashes from empty inputs.
+- JSON file handling ensures tasks are preserved.
+
 ## Methodology
 # Core Feature Implementation
 - Tasks are stored as dictionaries containing title, subject, due date, and status.
@@ -45,7 +64,7 @@ Outputs
 - Input validation is applied to ensure correct date format.
 - Menu-based navigation allows users to interact with the system easily.
 
-# Technologies Used (with Justification)
+# Technologies Used
 - Python – Chosen for its simplicity and suitability for learning programming fundamentals.
 - JSON – Used for lightweight, human-readable data storage.
 - Datetime Module – Ensures valid due date input.
