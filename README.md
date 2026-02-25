@@ -47,10 +47,10 @@ Outputs
 
 Example JSON structure:
 {
-  "title": "Math Homework",
-  "subject": "Algebra",
-  "due_date": "2026-02-28",
-  "status": "Pending"
+"title": "Math Homework",
+"subject": "Algebra",
+"due_date": "2026-02-28",
+"status": "Pending"
 }
 
 # Technologies Used
