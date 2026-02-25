@@ -1,145 +1,132 @@
 import json
 import os
 from datetime import datetime
-
-TASKS_FILE = "tasks.json"
-
-# -----------------------------
-# Load & Save Functions
-# -----------------------------
+FILE_NAME = "tasks.json"
+# ---------------------------
+# Utility Functions
+# ---------------------------
 def load_tasks():
-    if not os.path.exists(TASKS_FILE):
+    if not os.path.exists(FILE_NAME):
         return []
-    with open(TASKS_FILE, "r") as f:
-        return json.load(f)
-
+    try:
+        with open(FILE_NAME, "r") as file:
+            return json.load(file)
+    except json.JSONDecodeError:
+        return []
 def save_tasks(tasks):
-    with open(TASKS_FILE, "w") as f:
-        json.dump(tasks, f, indent=4)
-
-# -----------------------------
-# Main Features
-# -----------------------------
-def add_task():
-    print("\n--- ADD TASK ---")
-    title = input("Task Title: ")
-    subject = input("Subject: ")
-    due_date = input("Due Date (YYYY-MM-DD or leave blank): ")
-
-    if due_date:
-        try:
-            datetime.strptime(due_date, "%Y-%m-%d")
-        except ValueError:
-            print("Invalid date format! Use YYYY-MM-DD.")
-            return
-
-    tasks = load_tasks()
-    tasks.append({
+    with open(FILE_NAME, "w") as file:
+        json.dump(tasks, file, indent=4)
+def validate_date(date_str):
+    if date_str == "":
+        return ""
+    try:
+        datetime.strptime(date_str, "%Y-%m-%d")
+        return date_str
+    except ValueError:
+        return None
+# ---------------------------
+# CRUD Functions
+# ---------------------------
+def add_task(tasks):
+    title = input("Enter task title: ").strip()
+    if not title:
+        print("Title cannot be empty.")
+        return
+    subject = input("Enter subject: ").strip()
+    if not subject:
+        print("Subject cannot be empty.")
+        return
+    due_date = input("Enter due date (YYYY-MM-DD) or leave blank: ").strip()
+    valid_date = validate_date(due_date)
+    if valid_date is None:
+        print("Invalid date format. Use YYYY-MM-DD.")
+        return
+    task = {
         "title": title,
         "subject": subject,
-        "due_date": due_date if due_date else "No due date",
+        "due_date": valid_date,
         "status": "Pending"
-    })
+    }
+    tasks.append(task)
     save_tasks(tasks)
-    print("✓ Task added!")
-
-def view_tasks():
-    tasks = load_tasks()
+    print("Task added successfully!")
+def view_tasks(tasks):
     if not tasks:
-        print("\nNo tasks found.")
+        print(" No tasks found.")
         return
-
-    print("\n--- ALL TASKS ---")
+    print("\n Your Tasks:")
     for i, task in enumerate(tasks, start=1):
-        print(f"{i}. {task['title']} | {task['subject']} | Due: {task['due_date']} | Status: {task['status']}")
-    print()
-
-def mark_done():
-    tasks = load_tasks()
+        due = task["due_date"] if task["due_date"] else "No due date"
+        print(f"{i}. {task['title']} | {task['subject']} | Due: {due} | Status: {task['status']}")
+def mark_task_done(tasks):
+    view_tasks(tasks)
     if not tasks:
-        print("\nNo tasks to mark.")
         return
-
-    view_tasks()
-    choice = input("Enter task number to mark as Done: ")
-
-    if not choice.isdigit() or not (1 <= int(choice) <= len(tasks)):
-        print("Invalid task number!")
-        return
-
-    idx = int(choice) - 1
-    tasks[idx]["status"] = "Done"
-    save_tasks(tasks)
-    print("✓ Task marked as done!")
-
-def delete_task():
-    tasks = load_tasks()
+    try:
+        task_num = int(input("Enter task number to mark as done: "))
+        if 1 <= task_num <= len(tasks):
+            tasks[task_num - 1]["status"] = "Done"
+            save_tasks(tasks)
+            print("Task marked as done!")
+        else:
+            print("Invalid task number.")
+    except ValueError:
+        print("Please enter a valid number.")
+def delete_task(tasks):
+    view_tasks(tasks)
     if not tasks:
-        print("\nNo tasks to delete.")
         return
-
-    view_tasks()
-    choice = input("Enter task number to delete: ")
-
-    if not choice.isdigit() or not (1 <= int(choice) <= len(tasks)):
-        print("Invalid task number!")
-        return
-
-    idx = int(choice) - 1
-    deleted = tasks.pop(idx)
-    save_tasks(tasks)
-    print(f"✓ Deleted: {deleted['title']}")
-
-def export_markdown():
-    tasks = load_tasks()
-    if not tasks:
-        print("\nNo tasks to export.")
-        return
-
-    md = "# AssignMate Task List\n\n"
-    for i, t in enumerate(tasks, start=1):
-        md += f"### {i}. **{t['title']}**\n"
-        md += f"- Subject: {t['subject']}\n"
-        md += f"- Due: {t['due_date']}\n"
-        md += f"- Status: {t['status']}\n\n"
-
-    with open("assignmate_tasks.md", "w") as f:
-        f.write(md)
-
-    print("✓ Exported to assignmate_tasks.md")
-
-# -----------------------------
-# Menu
-# -----------------------------
+    try:
+        task_num = int(input("Enter task number to delete: "))
+        if 1 <= task_num <= len(tasks):
+            deleted = tasks.pop(task_num - 1)
+            save_tasks(tasks)
+            print(f"Task '{deleted['title']}' deleted.")
+        else:
+            print("Invalid task number.")
+    except ValueError:
+        print("Please enter a valid number.")
+# ---------------------------
+# Export Function
+# ---------------------------
+def export_to_markdown(tasks):
+    with open("assignmate_tasks.md", "w") as file:
+        file.write("# AssignMate Task List\n\n")
+        for i, task in enumerate(tasks, start=1):
+            due = task["due_date"] if task["due_date"] else "No due date"
+            file.write(f"## {i}. {task['title']}\n")
+            file.write(f"- Subject: {task['subject']}\n")
+            file.write(f"- Due Date: {due}\n")
+            file.write(f"- Status: {task['status']}\n\n")
+    print("📄 Tasks exported to assignmate_tasks.md")
+# ---------------------------
+# Main Menu
+# ---------------------------
 def main():
+    tasks = load_tasks()
     while True:
-        print("\n===========================")
-        print("       ASSIGNMATE")
-        print("===========================\n")
+        print("\n====== AssignMate ======")
         print("1. Add Task")
-        print("2. View All Tasks")
+        print("2. View Tasks")
         print("3. Mark Task as Done")
         print("4. Delete Task")
-        print("5. Export Tasks to Markdown")
+        print("5. Export to Markdown")
         print("6. Exit")
-
-        choice = input("\nSelect an option: ")
-
+        choice = input("Choose an option (1-6): ").strip()
         if choice == "1":
-            add_task()
+            add_task(tasks)
         elif choice == "2":
-            view_tasks()
+            view_tasks(tasks)
         elif choice == "3":
-            mark_done()
+            mark_task_done(tasks)
         elif choice == "4":
-            delete_task()
+            delete_task(tasks)
         elif choice == "5":
-            export_markdown()
+            export_to_markdown(tasks)
         elif choice == "6":
-            print("\nGoodbye!")
+            print("Goodbye!")
             break
         else:
-            print("Invalid input. Try again.")
-
+            print("Invalid choice. Please select 1-6.")
 if __name__ == "__main__":
     main()
