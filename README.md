@@ -57,6 +57,7 @@ Outputs
 - The program preveents crashes from empty inputs.
 - JSON file handling ensures tasks are preserved.
 
+
 ## Methodology
 # Core Feature Implementation
 - Tasks are stored as dictionaries containing title, subject, due date, and status.
