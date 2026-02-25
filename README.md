@@ -74,7 +74,7 @@ Example JSON structure:
 # Error Handling:
 - Invalid date formats are rejected and the user is prompted again.
 - Invalid task numbers are handled safely.
-- The program preveents crashes from empty inputs.
+- The program prevents crashes from empty inputs.
 - JSON file handling ensures tasks are preserved.
 
 # Backend–Frontend Communication
