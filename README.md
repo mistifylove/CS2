@@ -25,13 +25,6 @@ A lot of students end up missing or forgetting their assignments simply because 
 - Export tasks to a Markdown file
 - Simple menu-driven interface
 
-# Requirements:
-- Python 3.10 or higher
-- Built-in modules used:
-  - json
-  - datetime
-  - os (if used)
-
 # Inputs and Outputs
 Inputs
 - Task title
@@ -45,6 +38,33 @@ Outputs
 - Updated task list after changes
 - Exported Markdown file (assignmate_tasks.md)
 
+## Methodology
+# Core Feature Implementation
+- Tasks are stored as dictionaries containing title, subject, due date, and status.
+- All tasks are saved in a local tasks.json file using the json module.
+- Input validation is applied to ensure correct date format.
+- Menu-based navigation allows users to interact with the system easily.
+
+Example JSON structure:
+{
+  "title": "Math Homework",
+  "subject": "Algebra",
+  "due_date": "2026-02-28",
+  "status": "Pending"
+}
+
+# Technologies Used
+- Python – Chosen for its simplicity and suitability for learning programming fundamentals.
+- JSON – Used for lightweight, human-readable data storage.
+- Datetime Module – Ensures valid due date input.
+
+# Requirements:
+- Python 3.10 or higher
+- Built-in modules used:
+  - json
+  - datetime
+  - os (if used)
+ 
 # Errors
 - What happens if the user enters:
   - Invalid date format
@@ -57,19 +77,6 @@ Outputs
 - The program preveents crashes from empty inputs.
 - JSON file handling ensures tasks are preserved.
 
-
-## Methodology
-# Core Feature Implementation
-- Tasks are stored as dictionaries containing title, subject, due date, and status.
-- All tasks are saved in a local tasks.json file using the json module.
-- Input validation is applied to ensure correct date format.
-- Menu-based navigation allows users to interact with the system easily.
-
-# Technologies Used
-- Python – Chosen for its simplicity and suitability for learning programming fundamentals.
-- JSON – Used for lightweight, human-readable data storage.
-- Datetime Module – Ensures valid due date input.
-
 # Backend–Frontend Communication
 Not applicable. This is a standalone, console-based application.
 
@@ -77,22 +84,18 @@ Not applicable. This is a standalone, console-based application.
 - A command-line interface was used instead of a GUI to focus on logic and core programming concepts.
 - Data is stored locally rather than using a database to keep the project simple and beginner-friendly.
 
+# Limitations
+- No multi-user support
+- No password protection
+- Data stored only locally (no cloud backup)
+- No automatic overdue detection
+- No task sorting or filtering
+
 # Ethical Considerations
 - No personal or sensitive user data is collected.
 - Data is stored locally and only accessible to the user.
 - The interface is kept simple and readable to support accessibility.
 - All learning resources and references are properly credited.
-
-# GitHub Repository Structure
-AssignMate/
-
-│── main.py
-
-│── tasks.json
-
-│── README.md
-
-│── CHANGELOG.md
 
 # GitHub Practices
 - Commits use clear and descriptive messages
@@ -109,11 +112,22 @@ cd AssignMate
 Run the program:
 python main.py
 
-# Project Status
-- The core functionality of AssignMate is complete. Possible future improvements include a graphical user interface and cloud-based storage.
-
 # Programming and Computing Ethics
 - This project follows ethical programming practices by respecting intellectual property, protecting user privacy, and considering accessibility. No unnecessary data is collected, and open-source principles are respected. These practices align with the ACM Code of Ethics.
+
+# GitHub Repository Structure
+AssignMate/
+
+│── main.py
+
+│── tasks.json
+
+│── README.md
+
+│── CHANGELOG.md
+
+# Project Status
+- The core functionality of AssignMate is complete.
 
 # References (APA Style)
 Association for Computing Machinery. (2018). ACM Code of Ethics and Professional Conduct. https://www.acm.org/code-of-ethics
