@@ -1,7 +1,7 @@
 # CHANGELOG
 This file lists all the updates made to our AssignMate project.
 
-## Version v0.1.0 – August 15, 2025
+## Version v0.1.0 - August 15, 2025
 - Created initial project proposal.
 - Wrote problem statement, objectives, and planned features.
 - Drafted logic plan for program flow.
@@ -26,7 +26,7 @@ This file lists all the updates made to our AssignMate project.
 - Still in draft form; some sections were incomplete and marked for revision.
 
 
-## Version v1.0.0 – December 4, 2025 
+## Version v1.0.0 - December 4, 2025 
 - Finalized project proposal based on teacher and members feedback.
 - Refined problem statement and objectives to better address student needs.
 - Finalized logic plan and program flow.
